@@ -344,6 +344,7 @@ public:
 	bool is_running();
 	bool initialize(const String &p_rendering_driver);
 	bool initialize_session();
+	bool uninitialize_session();
 	void finish();
 
 	XrSpace get_play_space() const { return play_space; }

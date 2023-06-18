@@ -570,7 +570,11 @@ bool OpenXRInterface::initialize() {
 void OpenXRInterface::uninitialize() {
 	// Our OpenXR driver will clean itself up properly when Godot exits, so we just do some basic stuff here
 
-	// end the session if we need to?
+	if (openxr_api) {
+		if (openxr_api->get_session()) {
+			openxr_api->uninitialize_session();
+		}
+	}
 
 	// cleanup stuff
 	free_trackers();
