@@ -909,12 +909,8 @@ bool OpenXRAPI::create_swapchains() {
 	return true;
 };
 
-bool OpenXRAPI::uninitialize_session() {
-	if (running && session != XR_NULL_HANDLE) {
-		destroy_session();
-		return true;
-	}
-	return false;
+void OpenXRAPI::uninitialize_session() {
+	destroy_session();
 }
 
 void OpenXRAPI::destroy_session() {
